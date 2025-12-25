@@ -1,0 +1,7 @@
+## Interface: 303000
+## Title: Heirloom Deliver
+## Notes: One-click delivery of heirloom sets from vanity collection
+## Author: Juggalo187
+## Version: 1.0
+
+HeirloomDeliver.lua
