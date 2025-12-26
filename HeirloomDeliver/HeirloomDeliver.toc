@@ -1,4 +1,4 @@
-## Interface: 303000
+## Interface: 303000  # Update to your WoW version
 ## Title: Heirloom Deliver
 ## Notes: One-click delivery of heirloom sets from vanity collection
 ## Author: Juggalo187

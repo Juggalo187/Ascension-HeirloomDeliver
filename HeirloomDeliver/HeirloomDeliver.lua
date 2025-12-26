@@ -207,6 +207,226 @@ HeirloomDeliver.Sets = {
     }
 }
 
+-- Weapons data
+HeirloomDeliver.Weapons = {
+    {
+        id = 100,
+        name = "Urn of Aspiring Light",
+        type = "WEAPON",
+        class = "RELICS",
+        description = "Caster Relic",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Intellect\n- Mp5\n- Spell Critical Strike Chance\n- Spell Power\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Urn of Aspiring Light"}
+    },
+    {
+        id = 101,
+        name = "Shaman Totem of Spells",
+        type = "WEAPON",
+        class = "RELICS",
+        description = "Shaman Spell Totem",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Critical Strike Rating\n- Intellect\n- Mana Per 5\n- Spell Power\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Shaman Totem of Spells"}
+    },
+    {
+        id = 102,
+        name = "Shaman Totem of Agility",
+        type = "WEAPON",
+        class = "RELICS",
+        description = "Shaman Agility Totem",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Agility\n- Attack Power\n- Critical Strike Rating\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Shaman Totem of Agility"}
+    },
+    {
+        id = 103,
+        name = "Paladin Libram of Healing",
+        type = "WEAPON",
+        class = "RELICS",
+        description = "Paladin Healing Libram",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Critical Strike Rating\n- Intellect\n- Mana Per 5\n- Spell Power\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Paladin Libram of Healing"}
+    },
+    {
+        id = 104,
+        name = "Paladin Libram of Strength",
+        type = "WEAPON",
+        class = "RELICS",
+        description = "Paladin Strength Libram",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Attack Power\n- Hit Rating\n- Stamina\n- Strength\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Paladin Libram of Strength"}
+    },
+    {
+        id = 105,
+        name = "Druid Idol of Spells",
+        type = "WEAPON",
+        class = "RELICS",
+        description = "Druid Spell Idol",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Critical Strike Rating\n- Intellect\n- Mana Per 5\n- Spell Power\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Druid Idol of Spells"}
+    },
+    {
+        id = 106,
+        name = "Druid Idol of Agility",
+        type = "WEAPON",
+        class = "RELICS",
+        description = "Druid Agility Idol",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Agility\n- Attack Power\n- Critical Strike Rating\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Druid Idol of Agility"}
+    },
+    {
+        id = 107,
+        name = "Charmed Ancient Bone Bow",
+        type = "WEAPON",
+        class = "RANGED",
+        description = "Ranged Weapon",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Attack Power\n- Critical Strike Rating\n- Hit Rating\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Charmed Ancient Bone Bow"}
+    },
+    {
+        id = 108,
+        name = "Bloodied Arcanite Reaper",
+        type = "WEAPON",
+        class = "TWOHAND",
+        description = "Two-Handed Axe",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Critical Strike Rating\n- Stamina\n- Strength\n- +20% EXP from Quests & Monsters (Additive)",
+        items = {"Bloodied Arcanite Reaper"}
+    },
+    {
+        id = 109,
+        name = "Devout Aurastone Hammer",
+        type = "WEAPON",
+        class = "ONEHAND",
+        description = "One-Handed Mace",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Intellect\n- Mp5\n- Stamina\n- Spell Power\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Devout Aurastone Hammer"}
+    },
+    {
+        id = 110,
+        name = "Venerable Dal'Rend's Sacred Charge",
+        type = "WEAPON",
+        class = "ONEHAND",
+        description = "One-Handed Sword",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Attack Power\n- Critical Strike Rating\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Venerable Dal'Rend's Sacred Charge"}
+    },
+    {
+        id = 111,
+        name = "Reforged Truesilver Champion",
+        type = "WEAPON",
+        class = "TWOHAND",
+        description = "Two-Handed Sword",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Resilience\n- Stamina\n- Strength\n- +20% EXP from Quests & Monsters (Additive)",
+        items = {"Reforged Truesilver Champion"}
+    },
+    {
+        id = 112,
+        name = "Repurposed Lava Dredger",
+        type = "WEAPON",
+        class = "TWOHAND",
+        description = "Two-Handed Mace",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Agility\n- Attack Power\n- Armor Penetration\n- Fire Resistance\n- Stamina\n- +20% EXP from Quests & Monsters (Additive)",
+        items = {"Repurposed Lava Dredger"}
+    },
+    {
+        id = 113,
+        name = "Grand Staff of Jordan",
+        type = "WEAPON",
+        class = "TWOHAND",
+        description = "Staff",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Hit Rating\n- Resilience\n- Stamina\n- Spell Power\n- +20% EXP from Quests & Monsters (Additive)",
+        items = {"Grand Staff of Jordan"}
+    },
+    {
+        id = 114,
+        name = "Dignified Headmaster's Charge",
+        type = "WEAPON",
+        class = "TWOHAND",
+        description = "Staff",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Intellect\n- Critical Strike Rating\n- Stamina\n- Spell power\n- +20% EXP from Quests & Monsters (Additive)",
+        items = {"Dignified Headmaster's Charge"}
+    },
+    {
+        id = 115,
+        name = "Balanced Heartseeker",
+        type = "WEAPON",
+        class = "ONEHAND",
+        description = "Dagger",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Agility\n- Attack Power\n- Hit Rating\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Balanced Heartseeker"}
+    },
+    {
+        id = 116,
+        name = "Sharpened Scarlet Kris",
+        type = "WEAPON",
+        class = "ONEHAND",
+        description = "Dagger",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Attack Power\n- Resilience\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Sharpened Scarlet Kris"}
+    },
+    {
+        id = 117,
+        name = "Venerable Mass of McGowan",
+        type = "WEAPON",
+        class = "ONEHAND",
+        description = "One-Handed Mace",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Agility\n- Attack Power\n- Critical Strike Rating\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Venerable Mass of McGowan"}
+    },
+    {
+        id = 118,
+        name = "Dwarven Hand Cannon",
+        type = "WEAPON",
+        class = "RANGED",
+        description = "Gun",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Attack Power\n- Critical Strike Rating\n- Resilience\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Dwarven Hand Cannon"}
+    },
+    {
+        id = 119,
+        name = "The Blessed Hammer of Grace",
+        type = "WEAPON",
+        class = "ONEHAND",
+        description = "One-Handed Mace",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Mp5\n- Resilience\n- Stamina\n- Spell Power\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"The Blessed Hammer of Grace"}
+    },
+    {
+        id = 120,
+        name = "Battleworn Thrash Blade",
+        type = "WEAPON",
+        class = "ONEHAND",
+        description = "One-Handed Sword",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Resilience Rating\n- Chance on Hit: Grants an extra attack on your next swing.\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Battleworn Thrash Blade"}
+    },
+    {
+        id = 121,
+        name = "Sturdied Arcanite Spear",
+        type = "WEAPON",
+        class = "TWOHAND",
+        description = "Polearm",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Attack Power\n- Critical Strike Rating\n- Stamina\n- +20% EXP from Quests & Monsters (Additive)",
+        items = {"Sturdied Arcanite Spear"}
+    },
+    {
+        id = 122,
+        name = "Polished Observer's Shield",
+        type = "WEAPON",
+        class = "SHIELD",
+        description = "Shield",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Armor\n- Block Value\n- Defense Rating\n- Hit Rating\n- Stamina\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Polished Observer's Shield"}
+    },
+    {
+        id = 123,
+        name = "Wand of the Forgotten Lich",
+        type = "WEAPON",
+        class = "RANGED",
+        description = "Wand",
+        tooltip = "As you level up, this item will provide you with the following stats:\n\n- Intellect\n- Mp5\n- Stamina\n- Spell Critical Strike Chance\n- Spell Power\n- Spirit\n- +10% EXP from Quests & Monsters (Additive)",
+        items = {"Wand of the Forgotten Lich"}
+    }
+}
+
 -- Helper function to count how many times an item appears in inventory
 function HeirloomDeliver:CountItemInInventory(itemName)
     local count = 0
@@ -414,7 +634,7 @@ function HeirloomDeliver:DeliverMissingItems(setIndex, missingItems, attempt)
     attempt = attempt or 1
     
     if #missingItems == 0 then
-        Frame.ProgressText:SetText("✓ All items delivered")
+        Frame.ProgressText:SetText("All items delivered")
         print("HeirloomDeliver: All items successfully delivered")
         
         C_Timer.After(2, function()
@@ -454,7 +674,7 @@ function HeirloomDeliver:DeliverMissingItems(setIndex, missingItems, attempt)
                 local stillMissing = HeirloomDeliver:GetMissingItems(setIndex)
                 
                 if #stillMissing == 0 then
-                    Frame.ProgressText:SetText(string.format("✓ Delivered all items (Attempt %d)", attempt))
+                    Frame.ProgressText:SetText(string.format("Delivered all items (Attempt %d)", attempt))
                     print("HeirloomDeliver: Successfully delivered all items on attempt " .. attempt)
                     
                     C_Timer.After(2, function()
@@ -695,7 +915,7 @@ function HeirloomDeliver:DeliverSet(setIndex)
                 local allDelivered = HeirloomDeliver:VerifySetDelivery(setIndex)
                 
                 if allDelivered then
-                    Frame.ProgressText:SetText(string.format("✓ Delivered %d/%d items", delivered, total))
+                    Frame.ProgressText:SetText(string.format("Delivered %d/%d items", delivered, total))
                     print("HeirloomDeliver: Successfully delivered and verified " .. set.name)
                     
                     C_Timer.After(2, function()
@@ -754,7 +974,7 @@ end
 
 -- Create scroll frame for sets - CENTERED
 Frame.ScrollFrame = CreateFrame("ScrollFrame", nil, Frame, "UIPanelScrollFrameTemplate")
-Frame.ScrollFrame:SetPoint("TOP", 0, -100)
+Frame.ScrollFrame:SetPoint("TOP", 0, -90)
 Frame.ScrollFrame:SetWidth(400)  -- Fixed width for centering
 Frame.ScrollFrame:SetPoint("BOTTOM", 0, 40)
 
@@ -785,57 +1005,94 @@ end)
 
 -- Filter container frame - CENTERED
 Frame.FilterContainer = CreateFrame("Frame", nil, Frame)
-Frame.FilterContainer:SetSize(430, 60)
+Frame.FilterContainer:SetSize(430, 100)
 Frame.FilterContainer:SetPoint("TOP", 0, -30)
 
 -- Filter title - CENTERED
 Frame.FilterTitle = Frame.FilterContainer:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 Frame.FilterTitle:SetPoint("TOP", 0, 0)
-Frame.FilterTitle:SetText("Filter by:")
+Frame.FilterTitle:SetText("Press button to change filter.")
 
--- Filter buttons - Centered layout
-local filterTypes = {
-    {name = "All", key = "ALL"},
-    {name = "Cloth", key = "CLOTH"},
-    {name = "Leather", key = "LEATHER"},
-    {name = "Mail", key = "MAIL"},
-    {name = "Tank", key = "TANK"},
-    {name = "Healer", key = "HEALER"},
-    {name = "DPS", key = "DPS"},
-    {name = "Hybrid", key = "HYBRID"}
+-- Button 1: Armor Type (rotates through All Types, Cloth, Leather, Mail)
+Frame.ArmorTypeButton = CreateFrame("Button", nil, Frame.FilterContainer, "UIPanelButtonTemplate")
+Frame.ArmorTypeButton:SetSize(100, 22)
+Frame.ArmorTypeButton:SetPoint("TOP", -90, -25)
+Frame.ArmorTypeButton:SetText("All Types")
+
+-- Set the filter properties directly on the button
+Frame.ArmorTypeButton.filterSequence = {"ALL_TYPES", "CLOTH", "LEATHER", "MAIL"}
+Frame.ArmorTypeButton.currentIndex = 1
+
+Frame.ArmorTypeButton:SetScript("OnClick", function(self)
+    -- Rotate to next filter
+    self.currentIndex = self.currentIndex + 1
+    if self.currentIndex > #self.filterSequence then
+        self.currentIndex = 1
+    end
+    
+    local newFilter = self.filterSequence[self.currentIndex]
+    
+    -- Set the button text based on the filter
+    local displayText = ""
+    if newFilter == "ALL_TYPES" then
+        displayText = "All Types"
+    elseif newFilter == "CLOTH" then
+        displayText = "Cloth"
+    elseif newFilter == "LEATHER" then
+        displayText = "Leather"
+    elseif newFilter == "MAIL" then
+        displayText = "Mail"
+    end
+    
+    self:SetText(displayText)
+    HeirloomDeliver:ApplyFilter(newFilter)
+end)
+
+-- Button 2: Weapons (always shows only weapons)
+Frame.WeaponsButton = CreateFrame("Button", nil, Frame.FilterContainer, "UIPanelButtonTemplate")
+Frame.WeaponsButton:SetSize(100, 22)
+Frame.WeaponsButton:SetPoint("TOP", 0, -25)
+Frame.WeaponsButton:SetText("Weapons")
+Frame.WeaponsButton:SetScript("OnClick", function(self)
+    -- Reset armor type button
+    Frame.ArmorTypeButton.currentIndex = 1
+    Frame.ArmorTypeButton:SetText("All Types")
+    
+    -- Reset role button
+    Frame.RoleButton.currentIndex = 1
+    Frame.RoleButton:SetText("All Roles")
+    
+    HeirloomDeliver:ApplyFilter("WEAPONS")
+end)
+
+-- Button 3: Role (rotates through All Roles, Tank, Healer, DPS, Hybrid)
+Frame.RoleButton = CreateFrame("Button", nil, Frame.FilterContainer, "UIPanelButtonTemplate")
+Frame.RoleButton:SetSize(100, 22)
+Frame.RoleButton:SetPoint("TOP", 90, -25)
+Frame.RoleButton:SetText("All Roles")
+Frame.RoleButton.filterSequence = {"ALL_ROLES", "TANK", "HEALER", "DPS", "HYBRID"}
+Frame.RoleButton.filterDisplayText = {
+    ALL_ROLES = "All Roles",
+    TANK = "Tank",
+    HEALER = "Healer",
+    DPS = "DPS",
+    HYBRID = "Hybrid"
 }
+Frame.RoleButton.currentIndex = 1
+Frame.RoleButton:SetScript("OnClick", function(self)
+    -- Rotate to next filter
+    self.currentIndex = self.currentIndex + 1
+    if self.currentIndex > #self.filterSequence then
+        self.currentIndex = 1
+    end
+    
+    local newFilter = self.filterSequence[self.currentIndex]
+    -- Get the display text from our table
+    local displayText = self.filterDisplayText[newFilter] or newFilter
+    self:SetText(displayText)
+    HeirloomDeliver:ApplyFilter(newFilter)
+end)
 
-HeirloomDeliver.FilterButtons = {}
-
-local buttonWidth = 70
-local buttonHeight = 22
-local buttonSpacing = 5
-local buttonsPerRow = 4
-
--- Calculate total width for centering
-local totalRowWidth = (buttonWidth * buttonsPerRow) + (buttonSpacing * (buttonsPerRow - 1))
-
-for i, filter in ipairs(filterTypes) do
-    local row = math.floor((i-1)/buttonsPerRow)
-    local col = (i-1) % buttonsPerRow
-    
-    local btn = CreateFrame("Button", nil, Frame.FilterContainer, "UIPanelButtonTemplate")
-    btn:SetSize(buttonWidth, buttonHeight)
-    btn:SetText(filter.name)
-    
-    -- Calculate centered position for each button
-    local xOffset = -totalRowWidth/2 + (col * (buttonWidth + buttonSpacing)) + buttonWidth/2
-    local yOffset = -20 - (row * (buttonHeight + 5))
-    
-    btn:SetPoint("TOP", Frame.FilterContainer, "TOP", xOffset, yOffset)
-    
-    btn.filterKey = filter.key
-    btn:SetScript("OnClick", function(self)
-        HeirloomDeliver:ApplyFilter(self.filterKey)
-    end)
-    
-    HeirloomDeliver.FilterButtons[i] = btn
-end
 
 -- Status text - CENTERED
 Frame.StatusText = Frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -849,9 +1106,9 @@ Frame.ProgressText:SetText("")
 Frame.ProgressText:Hide()
 
 -- Function to create set display with tooltip
-function HeirloomDeliver:CreateSetDisplay(set, index, parent)
+function HeirloomDeliver:CreateSetDisplay(set, index, parent, isUnowned)
     local display = CreateFrame("Frame", nil, parent)
-    display:SetSize(350, 85)
+    display:SetSize(350, 155)
     
     -- Center the display within the scroll child
     display:SetPoint("TOP", parent, "TOP", 0, -(index-1)*90)
@@ -860,7 +1117,11 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
     display:EnableMouse(true)
     display:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText(set.armor .. " - " .. set.name, 1, 1, 1)
+        if set.type == "WEAPON" then
+            GameTooltip:SetText(set.class .. " - " .. set.name, 1, 1, 1)
+        else
+            GameTooltip:SetText(set.armor .. " - " .. set.name, 1, 1, 1)
+        end
         GameTooltip:AddLine(" ")
         GameTooltip:AddLine(set.tooltip, 1, 1, 1, true)
         GameTooltip:Show()
@@ -870,25 +1131,41 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
         GameTooltip:Hide()
     end)
     
-    -- Background with border
+    -- Background with border - different color for unowned items
     display.Background = display:CreateTexture(nil, "BACKGROUND")
     display.Background:SetAllPoints()
-    display.Background:SetColorTexture(0.15, 0.15, 0.15, 0.8)
+    if isUnowned then
+        display.Background:SetColorTexture(0.2, 0.1, 0.1, 0.8)  -- Darker red tint for unowned
+    else
+        display.Background:SetColorTexture(0.15, 0.15, 0.15, 0.8)
+    end
     
     display.Border = display:CreateTexture(nil, "BORDER")
     display.Border:SetAllPoints()
-    display.Border:SetColorTexture(0.3, 0.3, 0.3, 1)
+    if isUnowned then
+        display.Border:SetColorTexture(0.4, 0.2, 0.2, 1)  -- Redder border for unowned
+    else
+        display.Border:SetColorTexture(0.3, 0.3, 0.3, 1)
+    end
     
     -- Set name
     display.Name = display:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     display.Name:SetPoint("TOPLEFT", 10, -5)
-    display.Name:SetText(set.armor .. " - " .. set.name)
+    if set.type == "WEAPON" then
+        display.Name:SetText(set.class .. " - " .. set.name)
+    else
+        display.Name:SetText(set.armor .. " - " .. set.name)
+    end
     display.Name:SetJustifyH("LEFT")
     
-    -- Stats/Role
+    -- Stats/Role/Class
     display.Stats = display:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     display.Stats:SetPoint("TOPLEFT", display.Name, "BOTTOMLEFT", 0, -5)
-    display.Stats:SetText(set.stat .. " | " .. set.role)
+    if set.type == "WEAPON" then
+        display.Stats:SetText(set.type .. " | " .. set.class)
+    else
+        display.Stats:SetText(set.stat .. " | " .. set.role)
+    end
     display.Stats:SetJustifyH("LEFT")
     
     -- Description
@@ -921,18 +1198,21 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
     display.DeleteButton:SetSize(60, 22)
     display.DeleteButton:SetPoint("RIGHT", -5, 0)
     display.DeleteButton:SetText("Delete")
-	
-	-- Get the font string and adjust its position
-	local deleteButtonText = display.DeleteButton:GetFontString()
-	if deleteButtonText then
-		deleteButtonText:ClearAllPoints()
-		deleteButtonText:SetPoint("CENTER", 0, -2)  -- Move down 2 pixels
-	end
+    
+    -- Get the font string and adjust its position
+    local deleteButtonText = display.DeleteButton:GetFontString()
+    if deleteButtonText then
+        deleteButtonText:ClearAllPoints()
+        deleteButtonText:SetPoint("CENTER", 0, -2)  -- Move down 2 pixels
+    end
     
     -- Style delete button differently (red)
     if deleteButtonText then
         deleteButtonText:SetTextColor(1, 0.2, 0.2)
     end
+    
+    -- Check if we own all items in the set
+    local isFullyOwned = (#missingItems == 0)
     
     -- Only show delete button if all items are in bag
     if allItemsInBag then
@@ -949,6 +1229,17 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
         display.DeleteButton:Hide()
         -- Adjust deliver button position if delete button is hidden
         display.DeliverButton:SetPoint("CENTER", display.ButtonContainer, "CENTER", 0, 0)
+        
+        -- Disable deliver button if we don't own all items
+        if not isFullyOwned then
+            display.DeliverButton:Disable()
+            display.DeliverButton:SetText("Not Owned")
+            
+            local deliverButtonText = display.DeliverButton:GetFontString()
+            if deliverButtonText then
+                deliverButtonText:SetTextColor(0.5, 0.5, 0.5)
+            end
+        end
     end
     
     -- Button tooltip handling
@@ -957,6 +1248,12 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
             GameTooltip:SetOwner(self, "ANCHOR_TOP")
             GameTooltip:SetText("Already Delivered", 0.5, 0.5, 0.5)
             GameTooltip:AddLine("All items from this set are already in your inventory.", 1, 1, 1, true)
+            GameTooltip:Show()
+        elseif not isFullyOwned then
+            GameTooltip:SetOwner(self, "ANCHOR_TOP")
+            GameTooltip:SetText("Not Owned", 1, 0.5, 0)
+            GameTooltip:AddLine("You don't own all items in this set.", 1, 1, 1, true)
+            GameTooltip:AddLine("Missing " .. #missingItems .. " items.", 1, 0.5, 0)
             GameTooltip:Show()
         else
             GameTooltip:Hide()
@@ -983,19 +1280,29 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
         GameTooltip:Hide()
     end)
     
-    -- Store set index for callbacks
+    -- Store set index and type for callbacks
     display.DeliverButton.setIndex = index
+    display.DeliverButton.isWeapon = (set.type == "WEAPON")
     display.DeleteButton.setIndex = index
+    display.DeleteButton.isWeapon = (set.type == "WEAPON")
     
     -- Set button scripts
     display.DeliverButton:SetScript("OnClick", function(self)
-        if not allItemsInBag then
-            HeirloomDeliver:DeliverSet(self.setIndex)
+        if not allItemsInBag and isFullyOwned then
+            if self.isWeapon then
+                HeirloomDeliver:DeliverWeapon(self.setIndex)
+            else
+                HeirloomDeliver:DeliverSet(self.setIndex)
+            end
         end
     end)
     
     display.DeleteButton:SetScript("OnClick", function(self)
-        HeirloomDeliver:DeleteSetFromInventory(self.setIndex)
+        if self.isWeapon then
+            HeirloomDeliver:DeleteWeaponFromInventory(self.setIndex)
+        else
+            HeirloomDeliver:DeleteSetFromInventory(self.setIndex)
+        end
     end)
     
     -- Ownership text
@@ -1004,10 +1311,10 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
     
     if #missingItems == 0 then
         if allItemsInBag then
-            display.Owned:SetText(string.format("✓ In Inventory (%d items)", #set.items))
+            display.Owned:SetText(string.format("In Inventory (%d items)", #set.items))
             display.Owned:SetTextColor(0, 1, 0)  -- Green
         else
-            display.Owned:SetText(string.format("✓ Ready (%d items)", #set.items))
+            display.Owned:SetText(string.format("Ready (%d items)", #set.items))
             display.Owned:SetTextColor(0, 1, 0)  -- Green
         end
     else
@@ -1015,7 +1322,6 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
         display.Owned:SetTextColor(1, 0.5, 0)  -- Orange
         display.DeliverButton:Disable()
         display.DeliverButton:SetText("Missing Items")
-		
         
         -- Also style the disabled button text
         local deliverButtonText = display.DeliverButton:GetFontString()
@@ -1023,57 +1329,280 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent)
             deliverButtonText:SetTextColor(0.5, 0.5, 0.5)
         end
     end
-	
-	if deliverButtonText then
+    
+    if deliverButtonText then
         deliverButtonText:SetPoint("CENTER", 0, -2)  -- Move down 2 pixels
     end
-	
     
-	
     display.setIndex = index
+    display.isWeapon = (set.type == "WEAPON")
+    display.isUnowned = isUnowned
     return display
+end
+
+-- Function to deliver a weapon
+function HeirloomDeliver:DeliverWeapon(weaponIndex)
+    local weapon = HeirloomDeliver.Weapons[weaponIndex]
+    if not weapon then return end
+    
+    -- First check if the weapon is already in inventory
+    if HeirloomDeliver:AreAllSetItemsInInventory(weapon) then
+        print("HeirloomDeliver: " .. weapon.name .. " is already in your inventory.")
+        Frame.ProgressText:SetText("Weapon already in inventory")
+        Frame.ProgressText:Show()
+        Frame.StatusText:Hide()
+        
+        C_Timer.After(2, function()
+            Frame.ProgressText:Hide()
+            Frame.StatusText:Show()
+            HeirloomDeliver:RefreshSets()
+        end)
+        return
+    end
+    
+    Frame.ProgressText:SetText("Delivering " .. weapon.name .. "...")
+    Frame.ProgressText:Show()
+    Frame.StatusText:Hide()
+    
+    -- Check ownership first
+    local missingItems = HeirloomDeliver:CheckSetOwnership(weapon)
+    if #missingItems > 0 then
+        Frame.ProgressText:SetText("Missing " .. #missingItems .. " items")
+        print("HeirloomDeliver: Cannot deliver " .. weapon.name)
+        print("Missing items:")
+        for _, itemName in ipairs(missingItems) do
+            print("  - " .. itemName)
+        end
+        C_Timer.After(3, function()
+            Frame.ProgressText:Hide()
+            Frame.StatusText:Show()
+            HeirloomDeliver:RefreshSets()
+        end)
+        return
+    end
+    
+    -- Deliver weapon
+    local itemName = weapon.items[1]
+    local itemID = HeirloomDeliver:FindItemID(itemName)
+    
+    if itemID then
+        Frame.ProgressText:SetText("Delivering " .. weapon.name .. "...")
+        
+        -- Try to deliver the weapon
+        local success, errorMsg = pcall(function()
+            return RequestDeliverVanityCollectionItem(itemID)
+        end)
+        
+        if success then
+            -- Wait a moment, then verify delivery
+            C_Timer.After(HeirloomDeliver.Config.VERIFICATION_DELAY, function()
+                local allDelivered = HeirloomDeliver:AreAllSetItemsInInventory(weapon)
+                
+                if allDelivered then
+                    Frame.ProgressText:SetText("" .. weapon.name .. " delivered")
+                    print("HeirloomDeliver: Successfully delivered " .. weapon.name)
+                    
+                    C_Timer.After(2, function()
+                        Frame.ProgressText:Hide()
+                        Frame.StatusText:Show()
+                        HeirloomDeliver:RefreshSets()
+                    end)
+                else
+                    Frame.ProgressText:SetText("Failed to deliver " .. weapon.name)
+                    print("HeirloomDeliver: Failed to deliver " .. weapon.name)
+                    
+                    C_Timer.After(3, function()
+                        Frame.ProgressText:Hide()
+                        Frame.StatusText:Show()
+                        HeirloomDeliver:RefreshSets()
+                    end)
+                end
+            end)
+        else
+            Frame.ProgressText:SetText("Error delivering " .. weapon.name)
+            print("HeirloomDeliver: ERROR delivering " .. weapon.name .. ": " .. tostring(errorMsg))
+            
+            C_Timer.After(3, function()
+                Frame.ProgressText:Hide()
+                Frame.StatusText:Show()
+                HeirloomDeliver:RefreshSets()
+            end)
+        end
+    else
+        Frame.ProgressText:SetText("Could not find " .. weapon.name)
+        print("HeirloomDeliver: Could not find item ID for: " .. weapon.name)
+        
+        C_Timer.After(3, function()
+            Frame.ProgressText:Hide()
+            Frame.StatusText:Show()
+            HeirloomDeliver:RefreshSets()
+        end)
+    end
+end
+
+-- Function to delete a weapon from inventory
+function HeirloomDeliver:DeleteWeaponFromInventory(weaponIndex)
+    local weapon = HeirloomDeliver.Weapons[weaponIndex]
+    if not weapon then return end
+    
+    local itemName = weapon.items[1]
+    local count = HeirloomDeliver:CountItemInInventory(itemName)
+    
+    if count == 0 then
+        print("HeirloomDeliver: " .. weapon.name .. " not found in inventory.")
+        return
+    end
+    
+    -- Create confirmation text
+    local confirmationText = "Delete |cffff0000" .. count .. "|r of:\n\n|cffffd700" .. weapon.name .. "|r\n\n"
+    confirmationText = confirmationText .. "|cffffffffItem to delete:|r\n• " .. itemName
+    
+    if count > 1 then
+        confirmationText = confirmationText .. " (x" .. count .. ")\n"
+    else
+        confirmationText = confirmationText .. "\n"
+    end
+    
+    confirmationText = confirmationText .. "\n|cffff0000This will permanently delete this item from your inventory!|r"
+    
+    -- Show confirmation dialog
+    StaticPopupDialogs["HEIRLOOMDELIVER_DELETE_WEAPON_CONFIRM"] = {
+        text = confirmationText,
+        button1 = "Delete Item",
+        button2 = "Cancel",
+        OnAccept = function()
+            HeirloomDeliver:PerformDeleteWeaponFromInventory(weaponIndex)
+        end,
+        timeout = 0,
+        whileDead = true,
+        hideOnEscape = true,
+        preferredIndex = 3,
+        showAlert = true,
+        hasEditBox = false,
+        enterClicksFirstButton = false
+    }
+    
+    StaticPopup_Show("HEIRLOOMDELIVER_DELETE_WEAPON_CONFIRM")
+end
+
+function HeirloomDeliver:PerformDeleteWeaponFromInventory(weaponIndex)
+    local weapon = HeirloomDeliver.Weapons[weaponIndex]
+    if not weapon then return end
+    
+    Frame.ProgressText:SetText("Deleting " .. weapon.name .. "...")
+    Frame.ProgressText:Show()
+    Frame.StatusText:Hide()
+    
+    local itemName = weapon.items[1]
+    local deleted = 0
+    local maxAttempts = 10  -- Prevent infinite loop
+    
+    -- Function to delete all copies of the weapon
+    local function DeleteNextCopy()
+        if deleted >= maxAttempts then
+            Frame.ProgressText:SetText("Deleted " .. deleted .. " items")
+            
+            print("HeirloomDeliver: Deleted " .. deleted .. " copies of " .. weapon.name)
+            
+            -- Refresh display after delay
+            C_Timer.After(2, function()
+                Frame.ProgressText:Hide()
+                Frame.StatusText:Show()
+                HeirloomDeliver:RefreshSets()
+            end)
+            return
+        end
+        
+        -- Try to find and delete the item from inventory
+        local foundAndDeleted = HeirloomDeliver:DeleteItemFromInventory(itemName)
+        
+        if foundAndDeleted then
+            deleted = deleted + 1
+            Frame.ProgressText:SetText("Deleting " .. weapon.name .. " (" .. deleted .. ")...")
+            
+            -- Try to delete another copy
+            C_Timer.After(0.5, function()
+                DeleteNextCopy()
+            end)
+        else
+            -- No more copies found
+            Frame.ProgressText:SetText("Deleted " .. deleted .. " items")
+            
+            if deleted > 0 then
+                print("HeirloomDeliver: Deleted " .. deleted .. " copies of " .. weapon.name)
+            end
+            
+            -- Refresh display after delay
+            C_Timer.After(2, function()
+                Frame.ProgressText:Hide()
+                Frame.StatusText:Show()
+                HeirloomDeliver:RefreshSets()
+            end)
+        end
+    end
+    
+    -- Start deleting
+    DeleteNextCopy()
 end
 
 -- Function to check if set matches filter
 function HeirloomDeliver:SetMatchesFilter(set, filter)
     if not set then return false end
     
-    if filter == "ALL" or not filter then
+    -- Convert "ALL_TYPES" to "ALL" for compatibility
+    local effectiveFilter = filter
+    if filter == "ALL_TYPES" then
+        effectiveFilter = "ALL"
+    end
+    
+    if effectiveFilter == "ALL" or effectiveFilter == "ALL_ROLES" or not effectiveFilter then
         return true
     end
     
-    local filterUpper = filter:upper()
+    local filterUpper = effectiveFilter:upper()
     
     -- Armor type filters
     if filterUpper == "CLOTH" or filterUpper == "LEATHER" or filterUpper == "MAIL" then
-        return set.armor:upper() == filterUpper
+        return set.armor and set.armor:upper() == filterUpper
     end
     
     -- Role filters
     if filterUpper == "TANK" then
-        return set.role:upper() == "TANK"
+        return set.role and set.role:upper() == "TANK"
     end
     
     if filterUpper == "HEALER" then
-        return set.role:upper():find("HEALER") or set.role:upper():find("CASTER")
+        return set.role and (set.role:upper():find("HEALER") or set.role:upper():find("CASTER"))
     end
     
     if filterUpper == "DPS" then
-        return set.role:upper():find("DPS") or 
+        return set.role and (set.role:upper():find("DPS") or 
                set.role:upper():find("MELEE") or 
                set.role:upper():find("RANGED") or
                set.role:upper():find("HEALER") or
-               set.role:upper():find("CASTER")
+               set.role:upper():find("CASTER"))
     end
     
     if filterUpper == "HYBRID" then
-        return set.role:upper():find("HYBRID")
+        return set.role and set.role:upper():find("HYBRID")
+    end
+    
+    -- Weapons filter
+    if filterUpper == "WEAPONS" then
+        return set.type == "WEAPON"
     end
     
     return false
 end
 
--- Function to refresh set displays
+-- Function to check if a set is fully owned
+function HeirloomDeliver:IsSetFullyOwned(set)
+    if not set then return false end
+    local missingItems = HeirloomDeliver:CheckSetOwnership(set)
+    return #missingItems == 0
+end
+
+-- Function to refresh set displays with sorting (owned items first, unowned items last)
 function HeirloomDeliver:RefreshSets()
     -- Clear existing displays
     for _, child in ipairs({Frame.ScrollChild:GetChildren()}) do
@@ -1082,20 +1611,53 @@ function HeirloomDeliver:RefreshSets()
     
     local currentFilter = HeirloomDeliver.currentFilter or "ALL"
     
-    local visibleSets = {}
+    -- Separate owned and unowned items
+    local ownedSets = {}
+    local unownedSets = {}
+    
+    -- Check armor sets
     for i, set in ipairs(HeirloomDeliver.Sets) do
         if HeirloomDeliver:SetMatchesFilter(set, currentFilter) then
-            table.insert(visibleSets, {index = i, set = set})
+            if HeirloomDeliver:IsSetFullyOwned(set) then
+                table.insert(ownedSets, {index = i, set = set, isWeapon = false})
+            else
+                table.insert(unownedSets, {index = i, set = set, isWeapon = false})
+            end
         end
     end
     
+    -- Check weapons (only show when weapons filter is active or ALL/ALL_ROLES)
+    if currentFilter == "ALL" or currentFilter == "ALL_ROLES" or currentFilter == "WEAPONS" then
+        for i, weapon in ipairs(HeirloomDeliver.Weapons) do
+            if HeirloomDeliver:SetMatchesFilter(weapon, currentFilter) then
+                if HeirloomDeliver:IsSetFullyOwned(weapon) then
+                    table.insert(ownedSets, {index = i, set = weapon, isWeapon = true})
+                else
+                    table.insert(unownedSets, {index = i, set = weapon, isWeapon = true})
+                end
+            end
+        end
+    end
+    
+    -- Combine sets: owned first, then unowned
+    local visibleSets = {}
+    for _, data in ipairs(ownedSets) do
+        table.insert(visibleSets, {data = data, isUnowned = false})
+    end
+    for _, data in ipairs(unownedSets) do
+        table.insert(visibleSets, {data = data, isUnowned = true})
+    end
+    
     -- Update status
-    Frame.StatusText:SetText(string.format("Showing %d of %d sets", #visibleSets, #HeirloomDeliver.Sets))
+    local totalSets = #HeirloomDeliver.Sets
+    local totalWeapons = #HeirloomDeliver.Weapons
+    Frame.StatusText:SetText(string.format("Showing %d of %d items (%d unowned)", 
+        #visibleSets, totalSets + totalWeapons, #unownedSets))
     
     -- Create displays for visible sets
     local totalHeight = 0
-    for i, data in ipairs(visibleSets) do
-        local display = HeirloomDeliver:CreateSetDisplay(data.set, data.index, Frame.ScrollChild)
+    for i, item in ipairs(visibleSets) do
+        local display = HeirloomDeliver:CreateSetDisplay(item.data.set, item.data.index, Frame.ScrollChild, item.isUnowned)
         display:SetPoint("TOP", Frame.ScrollChild, "TOP", 0, -(i-1)*90)
         display:Show()
         totalHeight = totalHeight + 90
@@ -1108,14 +1670,6 @@ end
 function HeirloomDeliver:ApplyFilter(filter)
     if filter then
         HeirloomDeliver.currentFilter = filter
-        -- Highlight the active filter button
-        for _, btn in ipairs(HeirloomDeliver.FilterButtons) do
-            if btn.filterKey == filter then
-                btn:LockHighlight()
-            else
-                btn:UnlockHighlight()
-            end
-        end
     end
     
     HeirloomDeliver:RefreshSets()
@@ -1130,7 +1684,12 @@ SlashCmdList["HEIRLOOMDELIVER"] = function(msg)
         Frame:Hide()
     else
         Frame:Show()
-        HeirloomDeliver:ApplyFilter("ALL")
+        -- Reset filter buttons with proper state
+        Frame.ArmorTypeButton.currentIndex = 1
+        Frame.ArmorTypeButton:SetText("All Types")
+        Frame.RoleButton.currentIndex = 1
+        Frame.RoleButton:SetText("All Roles")
+        HeirloomDeliver:ApplyFilter("ALL_TYPES")
     end
 end
 
@@ -1142,14 +1701,15 @@ Frame:SetScript("OnEvent", function(self, event, addonName)
         
         -- Initial refresh after a delay to ensure VANITY_ITEMS is loaded
         C_Timer.After(2, function()
-            if VANITY_ITEMS then
-                local count = 0
-                for _ in pairs(VANITY_ITEMS) do count = count + 1 end
-            else
-                print("HeirloomDeliver: VANITY_ITEMS not found. Make sure vanity store is loaded.")
-            end
-            HeirloomDeliver:ApplyFilter("ALL")
-        end)
+			if VANITY_ITEMS then
+				local count = 0
+				for _ in pairs(VANITY_ITEMS) do count = count + 1 end
+				print("HeirloomDeliver: Found " .. count .. " vanity items.")
+			else
+				print("HeirloomDeliver: VANITY_ITEMS not found. Make sure vanity store is loaded.")
+			end
+			HeirloomDeliver:ApplyFilter("ALL_TYPES")
+		end)
     end
 end)
 
