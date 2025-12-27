@@ -1704,7 +1704,7 @@ Frame:SetScript("OnEvent", function(self, event, addonName)
 			if VANITY_ITEMS then
 				local count = 0
 				for _ in pairs(VANITY_ITEMS) do count = count + 1 end
-				print("HeirloomDeliver: Found " .. count .. " vanity items.")
+				--print("HeirloomDeliver: Found " .. count .. " vanity items.")
 			else
 				print("HeirloomDeliver: VANITY_ITEMS not found. Make sure vanity store is loaded.")
 			end
