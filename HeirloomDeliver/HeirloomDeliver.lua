@@ -38,7 +38,7 @@ HeirloomDeliver.Sets = {
         description = "Mail tanking set with Block, Defense, Dodge",
         tooltip = "As you level up, this MAIL set will provide you with the following stats:\n\n- Block Value\n- Defense Rating\n- Dodge Rating\n- Hit Rating\n- Stamina\n- Strength\n- +70% EXP from Quests & Monsters (Additive)",
         items = {
-            "Burnished Observer's Shield",
+            "Polished Observer's Shield",
             "Pendant of the Bulwark",
             "Ring of the Bulwark",
             "Ring of the Bulwark", -- 2x
@@ -1108,21 +1108,51 @@ Frame.ProgressText:Hide()
 -- Function to create set display with tooltip
 function HeirloomDeliver:CreateSetDisplay(set, index, parent, isUnowned)
     local display = CreateFrame("Frame", nil, parent)
-    display:SetSize(350, 155)
+    display:SetSize(350, 130)  -- Reduced height from 155 to create spacing
     
-    -- Center the display within the scroll child
-    display:SetPoint("TOP", parent, "TOP", 0, -(index-1)*90)
+    -- Add spacing between elements - positioned further down
+    display:SetPoint("TOP", parent, "TOP", 0, -((index-1)*140 + 10))  -- Added +10 for initial spacing
     
     -- Make the entire frame respond to mouse for tooltip
     display:EnableMouse(true)
+    
+    -- Get missing items for tooltip
+    local missingItems = HeirloomDeliver:CheckSetOwnership(set)
+    
     display:SetScript("OnEnter", function(self)
-        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:SetOwner(self, "ANCHOR_TOPLEFT")  -- Changed from ANCHOR_RIGHT to ANCHOR_TOPLEFT
         if set.type == "WEAPON" then
             GameTooltip:SetText(set.class .. " - " .. set.name, 1, 1, 1)
         else
             GameTooltip:SetText(set.armor .. " - " .. set.name, 1, 1, 1)
         end
         GameTooltip:AddLine(" ")
+        
+        -- Show missing items in tooltip if set is not fully owned
+        if #missingItems > 0 then
+            GameTooltip:AddLine("|cffff0000Missing Items:|r", 1, 1, 1)
+            
+            -- Group missing items by name with counts
+            local missingItemCounts = {}
+            for _, itemName in ipairs(missingItems) do
+                missingItemCounts[itemName] = (missingItemCounts[itemName] or 0) + 1
+            end
+            
+            -- Add each missing item to the tooltip
+            for itemName, count in pairs(missingItemCounts) do
+                if count > 1 then
+                    GameTooltip:AddLine("• " .. itemName .. " (x" .. count .. ")", 1, 0.5, 0)
+                else
+                    GameTooltip:AddLine("• " .. itemName, 1, 0.5, 0)
+                end
+            end
+            
+            GameTooltip:AddLine(" ")
+            GameTooltip:AddLine("|cffff0000You must own all items before delivering.|r", 1, 1, 1)
+            GameTooltip:AddLine(" ")
+        end
+        
+        -- Add the regular tooltip info
         GameTooltip:AddLine(set.tooltip, 1, 1, 1, true)
         GameTooltip:Show()
     end)
@@ -1132,8 +1162,10 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent, isUnowned)
     end)
     
     -- Background with border - different color for unowned items
+    -- Add some padding around the background
     display.Background = display:CreateTexture(nil, "BACKGROUND")
-    display.Background:SetAllPoints()
+    display.Background:SetPoint("TOPLEFT", 5, -5)  -- Add padding
+    display.Background:SetPoint("BOTTOMRIGHT", -5, 5)  -- Add padding
     if isUnowned then
         display.Background:SetColorTexture(0.2, 0.1, 0.1, 0.8)  -- Darker red tint for unowned
     else
@@ -1141,7 +1173,7 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent, isUnowned)
     end
     
     display.Border = display:CreateTexture(nil, "BORDER")
-    display.Border:SetAllPoints()
+    display.Border:SetAllPoints(display.Background)  -- Use background's size
     if isUnowned then
         display.Border:SetColorTexture(0.4, 0.2, 0.2, 1)  -- Redder border for unowned
     else
@@ -1245,15 +1277,46 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent, isUnowned)
     -- Button tooltip handling
     display.DeliverButton:SetScript("OnEnter", function(self)
         if allItemsInBag then
-            GameTooltip:SetOwner(self, "ANCHOR_TOP")
+            GameTooltip:SetOwner(self, "ANCHOR_TOP")  -- Good positioning
             GameTooltip:SetText("Already Delivered", 0.5, 0.5, 0.5)
             GameTooltip:AddLine("All items from this set are already in your inventory.", 1, 1, 1, true)
             GameTooltip:Show()
         elseif not isFullyOwned then
-            GameTooltip:SetOwner(self, "ANCHOR_TOP")
+            GameTooltip:SetOwner(self, "ANCHOR_TOP")  -- Good positioning
             GameTooltip:SetText("Not Owned", 1, 0.5, 0)
             GameTooltip:AddLine("You don't own all items in this set.", 1, 1, 1, true)
             GameTooltip:AddLine("Missing " .. #missingItems .. " items.", 1, 0.5, 0)
+            
+            -- Show missing items in tooltip
+            if #missingItems > 0 then
+                GameTooltip:AddLine(" ")
+                GameTooltip:AddLine("|cffff0000Missing Items:|r", 1, 1, 1)
+                
+                -- Group missing items by name with counts
+                local missingItemCounts = {}
+                for _, itemName in ipairs(missingItems) do
+                    missingItemCounts[itemName] = (missingItemCounts[itemName] or 0) + 1
+                end
+                
+                -- Show up to 5 missing items in button tooltip
+                local shown = 0
+                local maxShow = 5
+                for itemName, count in pairs(missingItemCounts) do
+                    if shown < maxShow then
+                        if count > 1 then
+                            GameTooltip:AddLine("• " .. itemName .. " (x" .. count .. ")", 1, 0.5, 0)
+                        else
+                            GameTooltip:AddLine("• " .. itemName, 1, 0.5, 0)
+                        end
+                        shown = shown + 1
+                    end
+                end
+                
+                if #missingItems > maxShow then
+                    GameTooltip:AddLine("• ... and " .. (#missingItems - maxShow) .. " more", 1, 0.5, 0)
+                end
+            end
+            
             GameTooltip:Show()
         else
             GameTooltip:Hide()
@@ -1318,7 +1381,7 @@ function HeirloomDeliver:CreateSetDisplay(set, index, parent, isUnowned)
             display.Owned:SetTextColor(0, 1, 0)  -- Green
         end
     else
-        display.Owned:SetText(string.format("Owned: %d/%d", ownedCount, #set.items))
+        display.Owned:SetText(string.format("Missing %d/%d", #missingItems, #set.items))
         display.Owned:SetTextColor(1, 0.5, 0)  -- Orange
         display.DeliverButton:Disable()
         display.DeliverButton:SetText("Missing Items")
@@ -1658,9 +1721,9 @@ function HeirloomDeliver:RefreshSets()
     local totalHeight = 0
     for i, item in ipairs(visibleSets) do
         local display = HeirloomDeliver:CreateSetDisplay(item.data.set, item.data.index, Frame.ScrollChild, item.isUnowned)
-        display:SetPoint("TOP", Frame.ScrollChild, "TOP", 0, -(i-1)*90)
+        display:SetPoint("TOP", Frame.ScrollChild, "TOP", 0, -(i-1)*140)  -- Changed from 90 to 140 for more spacing
         display:Show()
-        totalHeight = totalHeight + 90
+        totalHeight = totalHeight + 140  -- Changed from 90 to 140
     end
     
     Frame.ScrollChild:SetHeight(math.max(totalHeight, 1))
