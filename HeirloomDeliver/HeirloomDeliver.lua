@@ -9,6 +9,8 @@ HeirloomDeliver.Config = {
     RETRY_DELAY = 2,                  -- Delay between retry attempts (seconds)
     VERIFICATION_DELAY = 2            -- Delay before verifying delivery (seconds)
 }
+HeirloomDeliver.itemNameToIDCache = {}
+HeirloomDeliver.currentSearch = ""
 
 -- Create main frame with better background
 HeirloomDeliver.Frame = CreateFrame("Frame", "HeirloomDeliverFrame", UIParent, "BasicFrameTemplate")
@@ -427,6 +429,15 @@ HeirloomDeliver.Weapons = {
     }
 }
 
+function HeirloomDeliver:DeliverItemByID(itemID)
+    if C_VanityCollection and C_VanityCollection.RequestDelivery then
+        return C_VanityCollection.RequestDelivery(itemID)
+    elseif RequestDeliverVanityCollectionItem then
+        return RequestDeliverVanityCollectionItem(itemID)
+    end
+    return false
+end
+
 -- Helper function to count how many times an item appears in inventory
 function HeirloomDeliver:CountItemInInventory(itemName)
     local count = 0
@@ -477,27 +488,60 @@ function HeirloomDeliver:ExtractItemIDFromLink(itemLink)
     return nil
 end
 
--- Function to find item ID by name
 function HeirloomDeliver:FindItemID(itemName)
-    if not VANITY_ITEMS then 
-        return nil
+    if not itemName then return nil end
+
+    -- 1. Check cache
+    if self.itemNameToIDCache[itemName] then
+        return self.itemNameToIDCache[itemName]
     end
-    
-    -- First try exact match
-    for itemID, itemData in pairs(VANITY_ITEMS) do
-        if itemData.name == itemName then
-            return itemID
+
+    -- 2. Try old VANITY_ITEMS global (if it still exists)
+    if VANITY_ITEMS then
+        for itemID, itemData in pairs(VANITY_ITEMS) do
+            if itemData.name == itemName then
+                self.itemNameToIDCache[itemName] = itemID
+                return itemID
+            end
+        end
+        local lowerName = itemName:lower()
+        for itemID, itemData in pairs(VANITY_ITEMS) do
+            if itemData.name:lower() == lowerName then
+                self.itemNameToIDCache[itemName] = itemID
+                return itemID
+            end
         end
     end
-    
-    -- Try case-insensitive search
-    local lowerName = itemName:lower()
-    for itemID, itemData in pairs(VANITY_ITEMS) do
-        if itemData.name:lower() == lowerName then
-            return itemID
+
+    -- 3. Query the collection API (returns a table with .items)
+    if C_VanityCollection and C_VanityCollection.QueryItems then
+        local result = C_VanityCollection.QueryItems(itemName, Enum.VanityCategory.All, 0, 1, 0, 10)
+        if result and result.items then
+            for _, itemInfo in ipairs(result.items) do
+                local name = itemInfo.name
+                if name and name == itemName then
+                    local itemID = itemInfo.itemid or itemInfo.itemID
+                    if itemID then
+                        self.itemNameToIDCache[itemName] = itemID
+                        return itemID
+                    end
+                end
+            end
+            -- case‑insensitive fallback
+            local lowerName = itemName:lower()
+            for _, itemInfo in ipairs(result.items) do
+                local name = itemInfo.name
+                if name and name:lower() == lowerName then
+                    local itemID = itemInfo.itemid or itemInfo.itemID
+                    if itemID then
+                        self.itemNameToIDCache[itemName] = itemID
+                        return itemID
+                    end
+                end
+            end
         end
     end
-    
+
     return nil
 end
 
@@ -703,7 +747,7 @@ function HeirloomDeliver:DeliverMissingItems(setIndex, missingItems, attempt)
         if itemData.id then
             -- Try to deliver the item
             local success, errorMsg = pcall(function()
-                return RequestDeliverVanityCollectionItem(itemData.id)
+                return HeirloomDeliver:DeliverItemByID(itemData.id)
             end)
             
             if success then
@@ -946,7 +990,7 @@ function HeirloomDeliver:DeliverSet(setIndex)
             
             -- Try to deliver the item - use pcall to catch any errors
             local success, errorMsg = pcall(function()
-                return RequestDeliverVanityCollectionItem(itemID)
+                return HeirloomDeliver:DeliverItemByID(itemID)
             end)
             
             if success then
@@ -974,7 +1018,7 @@ end
 
 -- Create scroll frame for sets - CENTERED
 Frame.ScrollFrame = CreateFrame("ScrollFrame", nil, Frame, "UIPanelScrollFrameTemplate")
-Frame.ScrollFrame:SetPoint("TOP", 0, -90)
+Frame.ScrollFrame:SetPoint("TOP", 0, -110)
 Frame.ScrollFrame:SetWidth(400)  -- Fixed width for centering
 Frame.ScrollFrame:SetPoint("BOTTOM", 0, 40)
 
@@ -1093,6 +1137,31 @@ Frame.RoleButton:SetScript("OnClick", function(self)
     HeirloomDeliver:ApplyFilter(newFilter)
 end)
 
+-- Search Box
+Frame.SearchBox = CreateFrame("EditBox", nil, Frame, "SearchBoxTemplate")
+Frame.SearchBox:SetSize(160, 22)
+Frame.SearchBox:SetPoint("TOP", Frame.FilterContainer, "BOTTOM", 0, 45)
+
+-- Preserve template behavior + add our filter
+Frame.SearchBox:SetScript("OnTextChanged", function(self)
+    SearchBoxTemplate_OnTextChanged(self)   -- handles placeholder visibility
+    HeirloomDeliver.currentSearch = self:GetText()
+    HeirloomDeliver:RefreshSets()
+end)
+
+-- Pressing Escape clears and hides placeholder
+Frame.SearchBox:SetScript("OnEscapePressed", function(self)
+    self:SetText("")
+    self:ClearFocus()
+    SearchBoxTemplate_OnTextChanged(self)
+    HeirloomDeliver.currentSearch = ""
+    HeirloomDeliver:RefreshSets()
+end)
+
+-- When focus is lost, ensure placeholder shows if empty
+Frame.SearchBox:SetScript("OnEditFocusLost", function(self)
+    SearchBoxTemplate_OnEditFocusLost(self)
+end)
 
 -- Status text - CENTERED
 Frame.StatusText = Frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -1453,7 +1522,7 @@ function HeirloomDeliver:DeliverWeapon(weaponIndex)
         
         -- Try to deliver the weapon
         local success, errorMsg = pcall(function()
-            return RequestDeliverVanityCollectionItem(itemID)
+            return HeirloomDeliver:DeliverItemByID(itemID)
         end)
         
         if success then
@@ -1679,28 +1748,63 @@ function HeirloomDeliver:RefreshSets()
     local unownedSets = {}
     
     -- Check armor sets
-    for i, set in ipairs(HeirloomDeliver.Sets) do
-        if HeirloomDeliver:SetMatchesFilter(set, currentFilter) then
-            if HeirloomDeliver:IsSetFullyOwned(set) then
-                table.insert(ownedSets, {index = i, set = set, isWeapon = false})
-            else
-                table.insert(unownedSets, {index = i, set = set, isWeapon = false})
-            end
-        end
-    end
-    
-    -- Check weapons (only show when weapons filter is active or ALL/ALL_ROLES)
-    if currentFilter == "ALL" or currentFilter == "ALL_ROLES" or currentFilter == "WEAPONS" then
-        for i, weapon in ipairs(HeirloomDeliver.Weapons) do
-            if HeirloomDeliver:SetMatchesFilter(weapon, currentFilter) then
-                if HeirloomDeliver:IsSetFullyOwned(weapon) then
-                    table.insert(ownedSets, {index = i, set = weapon, isWeapon = true})
-                else
-                    table.insert(unownedSets, {index = i, set = weapon, isWeapon = true})
-                end
-            end
-        end
-    end
+	for i, set in ipairs(HeirloomDeliver.Sets) do
+		if HeirloomDeliver:SetMatchesFilter(set, currentFilter) then
+			local search = HeirloomDeliver.currentSearch or ""
+			if search == "" then
+				-- no search, include all that match filter
+				if HeirloomDeliver:IsSetFullyOwned(set) then
+					table.insert(ownedSets, {index = i, set = set, isWeapon = false})
+				else
+					table.insert(unownedSets, {index = i, set = set, isWeapon = false})
+				end
+			else
+				local searchLower = search:lower()
+				-- Combine all relevant fields into one searchable string
+				local searchable = (set.name or ""):lower() .. "|" ..
+								(set.stat or ""):lower() .. "|" ..
+								(set.armor or ""):lower() .. "|" ..
+								(set.role or ""):lower() .. "|" ..
+								(set.description or ""):lower()
+				if searchable:find(searchLower) then
+					if HeirloomDeliver:IsSetFullyOwned(set) then
+						table.insert(ownedSets, {index = i, set = set, isWeapon = false})
+					else
+						table.insert(unownedSets, {index = i, set = set, isWeapon = false})
+					end
+				end
+			end
+		end
+	end
+	
+	-- Check weapons (only when filter allows)
+	if currentFilter == "ALL" or currentFilter == "ALL_ROLES" or currentFilter == "WEAPONS" then
+		for i, weapon in ipairs(HeirloomDeliver.Weapons) do
+			if HeirloomDeliver:SetMatchesFilter(weapon, currentFilter) then
+				local search = HeirloomDeliver.currentSearch or ""
+				if search == "" then
+					if HeirloomDeliver:IsSetFullyOwned(weapon) then
+						table.insert(ownedSets, {index = i, set = weapon, isWeapon = true})
+					else
+						table.insert(unownedSets, {index = i, set = weapon, isWeapon = true})
+					end
+				else
+					local searchLower = search:lower()
+					local searchable = (weapon.name or ""):lower() .. "|" ..
+									(weapon.class or ""):lower() .. "|" ..
+									(weapon.type or ""):lower() .. "|" ..
+									(weapon.description or ""):lower()
+					if searchable:find(searchLower) then
+						if HeirloomDeliver:IsSetFullyOwned(weapon) then
+							table.insert(ownedSets, {index = i, set = weapon, isWeapon = true})
+						else
+							table.insert(unownedSets, {index = i, set = weapon, isWeapon = true})
+						end
+					end
+				end
+			end
+		end
+	end
     
     -- Combine sets: owned first, then unowned
     local visibleSets = {}
